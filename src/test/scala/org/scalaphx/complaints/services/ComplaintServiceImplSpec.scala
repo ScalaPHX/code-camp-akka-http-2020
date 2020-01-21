@@ -46,10 +46,12 @@ class ComplaintServiceImplSpec extends AnyFunSpec with Matchers with ScalaFuture
       }
     }
     it("finds a complaint by id") {
-      setGetByIdExpectations
-      whenReady(service.getById(complaint.id)) { results =>
-        results must not be empty
-        results.value.id must be(complaint.id)
+      complaint.id.fold(fail("Missing complaint id!")) { id =>
+        setGetByIdExpectations
+        whenReady(service.getById(id)) { results =>
+          results must not be empty
+          results.value.id.value must be(id)
+        }
       }
     }
   }

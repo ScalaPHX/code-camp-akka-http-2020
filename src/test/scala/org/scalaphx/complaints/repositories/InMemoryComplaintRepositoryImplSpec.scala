@@ -23,9 +23,11 @@ class InMemoryComplaintRepositoryImplSpec extends AnyFunSpec with Matchers with 
       }
     }
     it("returns a complaint by id when it has it") {
-      whenReady(repository.getById(complaint.id)) { results =>
-        results must not be empty
-        results.value.id must be(complaint.id)
+      complaint.id.fold(fail("No ID for complaint!")) { id =>
+        whenReady(repository.getById(id)) { results =>
+          results must not be empty
+          results.value.id.value must be(id)
+        }
       }
     }
     it("returns None when it can't find by id") {

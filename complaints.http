@@ -1,0 +1,18 @@
+POST http://localhost:8080/complaints
+Content-Type: application/json
+
+{
+  "userId" : "foo@bar.com",
+  "topic"  : "Testing",
+  "message": "Just testing the API"
+}
+
+###
+
+GET http://localhost:8080/complaints
+
+###
+
+GET http://localhost:8080/complaints/751de4b0-a9ad-4a2b-9da1-79a057ee0e83
+
+###
