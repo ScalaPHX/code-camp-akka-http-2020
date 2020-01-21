@@ -7,7 +7,7 @@ import org.scalaphx.complaints.services.ComplaintServiceImpl
 object Main extends App {
   println("Starting...")
   val gateway = ApiModule.createApiGateway
-  gateway.startServer(host = "localhost", port = 8080)
+  gateway.startServer(host = "0.0.0.0", port = 8080)
 }
 
 object ApiModule {

@@ -1,0 +1,6 @@
+version: "3"
+services:
+    api:
+      image: complaint-service:0.1
+      ports:
+        - 8080:8080
